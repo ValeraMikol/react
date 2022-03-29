@@ -1,0 +1,90 @@
+.image img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.columns{
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 35px;
+    margin: 35px;
+    display: flex;
+    justify-content:flex-start;
+}
+.column_left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    margin-right: 50px;
+}
+.column{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.items{
+    
+    
+}
+.item{
+    margin-bottom: 25px;
+    color: #fff;
+}
+.button{
+    cursor: pointer;
+}
+
+.button button{
+    width: 70px;
+    border: 0;
+    background: 0;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 15px;
+    transition: all ease 0.3s;
+    color: rgb(10, 150, 185);
+
+    
+}
+.button :hover{
+    width: 75px;
+    transition: all ease 0.3s;
+}
+
+
+
+.selectedPage{
+    font-weight: bold ;
+}
+
+.pagination{
+   display: flex;
+   justify-content: center;
+   padding-top: 30px;
+   
+}
+
+.pagination span{
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.pagination span:hover{
+    width: 28px;
+    height: 28px;
+    transition: all ease 0.3s;
+}
