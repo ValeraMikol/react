@@ -3,10 +3,26 @@
     background-color: rgb(224, 233, 233);
     display: flex;
     align-items: center;
-    padding-left: 25px;
+    
 }
 
 .header img {
     width: 150px;
+}
+
+.headerBody{
+    padding: 0 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loginButton{
+    text-decoration: none;
+    border: 2px solid rgb(13, 170, 218);
+    border-radius: 25%;
+    padding: 5px 10px;
+    color: rgb(13, 170, 218);
 }
 

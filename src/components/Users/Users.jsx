@@ -2,10 +2,11 @@ import React from 'react';
 import styled from '../Users/users.module.css';
 import userPhoto from '../../assets/image/user.png';
 import { NavLink } from 'react-router-dom';
+import * as axios from 'axios';
 
 
 const Users = (props) => {
-    debugger;
+    
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
         
         let pages = [];
@@ -34,8 +35,29 @@ return (
                     </div>
                     <div className={styled.button}>
                         {u.followed
-                         ? <button onClick = {() => {props.follow(u.id)}}>follow</button>
-                        : <button onClick={() => {props.unfollow(u.id)}}>Unfollow</button>}
+                         ? <button onClick = {() => {
+                            axios.post(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`,{}, {withCredentials:true, headers:{"API-KEY":"f984b4d0-aa62-48b4-a0ae-8d6fe0ce7082"}})
+                            .then(response => {
+                               if(response.data.resultCode === 0){
+                                props.follow(u.id)
+                               }
+                            });
+                            
+                        
+                        }}>follow</button>
+
+
+
+                        : <button onClick={() => {
+                            
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {withCredentials:true, headers:{"API-KEY":"f984b4d0-aa62-48b4-a0ae-8d6fe0ce7082"}})
+                            .then(response => {
+                               if(response.data.resultCode === 1){
+                                props.unfollow(u.id)
+                               }
+                            });
+                            
+                            }}>Unfollow</button>}
                     </div>
                 </span>
                 <span className={styled.column}>

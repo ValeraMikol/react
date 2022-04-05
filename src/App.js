@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import UsersContainer from './components/Users/UsersContainer';
@@ -19,14 +19,14 @@ const App = (props) => {
     return (
         
              <div className='app-wrapper'>
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <div class='app-wrapper-content'>
                     {/* <Route path='/dialogs' component={Dialogs}/>     /dialogs/spam/blabla */}
                     {/* <Route path='/profile' component={Profile}/> */}
 
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/> 
-                    <Route path='/profile' render={() => <ProfileContainer/>}/>
+                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
                 </div>
             </div>
