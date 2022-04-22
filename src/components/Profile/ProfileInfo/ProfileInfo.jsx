@@ -10,7 +10,6 @@ const ProfileInfo = (props) => {
             <Preloader/>
         )
     }
-
     return (
         <div>
             <div>
@@ -19,10 +18,10 @@ const ProfileInfo = (props) => {
             </div>
             <div className={styled.descriptionBlock}>
                 <div className={styled.profileAvatar}>
-                    <img src={props.profile.photos.large} alt="" />
+                    <img src={props.profile.data.photos.large} alt="" />
                 </div>
                 <div className={styled.profileBody}>
-                    <h2 className={styled.profileName}>{props.profile.fullName}</h2>
+                    <h2 className={styled.profileName}>{props.profile.data.fullName}</h2>
                 </div>
                 
                 
