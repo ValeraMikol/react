@@ -2,8 +2,7 @@ import React from 'react';
 import styled from '../Users/users.module.css';
 import userPhoto from '../../assets/image/user.png';
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
-import { usersAPI } from '../../api/api';
+
 
 
 const Users = (props) => {
@@ -36,7 +35,7 @@ return (
                     </div>
                     <div className={styled.button}>
                         {u.followed
-                         ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick = {() => {
+                         ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick = {() => { 
 
                             props.follow(u.id);
                             //  props.toggleFollowingProgress(true,u.id);

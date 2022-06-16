@@ -7,6 +7,7 @@ import {updateNewMessageBodyCreator,sendMessageCreator} from '../../redux/dialog
 
 
 
+
 const Dialogs = (props) => { 
 
 
@@ -26,6 +27,8 @@ const Dialogs = (props) => {
     let dialogsElements =  props.dialogs.map( d => <DialogItem name={d.name} id={d.id} />  ); //за мапеный массив диалогов
     let messagesElements = props.messages.map( m => <Message message={m.message}/> );         //за мапеный массив сообщений
 
+    
+    
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>

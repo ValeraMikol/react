@@ -3,6 +3,8 @@ import { profileAPI } from "../api/api";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const GET_USER_STATUS = 'GET_USER_STATUS';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 
 let initialState = {
     posts: [
@@ -13,7 +15,8 @@ let initialState = {
     ],
 
     newPostText:'it-kamasutra.com',
-    profile: null
+    profile: null,
+    status: "",
 
 };
 
@@ -51,6 +54,14 @@ let initialState = {
             
         }
 
+        case SET_USER_STATUS:{ 
+            return{
+                ...state,
+                status: action.status
+            };
+            
+        }
+
         default: return state;
     }
     
@@ -67,6 +78,8 @@ export const updateNewPostTextActionCreator = (text) => {
     }
 }
 export const setUserProfile = (profile) => ({type:SET_USER_PROFILE, profile});
+export const getUserStatus = (status) => ({type: GET_USER_STATUS, status});
+export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
 
 export const getProfile = (userId) => { 
     return (dispatch) => {
@@ -76,6 +89,30 @@ export const getProfile = (userId) => {
             .then(data => {
                 dispatch(setUserProfile(data));
             });
+    }
+}
+
+export const getStatus = (userId) => { 
+    return (dispatch) => {
+
+        profileAPI.getStatus(userId)
+        
+            .then(data => {
+               
+                dispatch(setUserStatus(data.data));
+            });
+    }
+}
+
+export const updateStatus = (status) => { 
+    return (dispatch) => {
+        profileAPI.updateStatus(status)    
+                .then(response => {
+                  
+                    if(response.data.resultCode === 0){
+                        dispatch(setUserStatus(status));
+                    }
+                });         
     }
 }
 

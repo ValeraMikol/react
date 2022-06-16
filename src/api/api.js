@@ -1,10 +1,13 @@
 import * as axios from 'axios';
-import { follow } from '../redux/users-reducer';
+
 
 
 const instance = axios.create({
     withCredentials:true,
-    baseURL: `https://social-network.samuraijs.com/api/1.0/`
+    baseURL: `https://social-network.samuraijs.com/api/1.0/`,
+    headers: {
+        "API-KEY": "f984b4d0-aa62-48b4-a0ae-8d6fe0ce7082"
+    }
 });
 
 
@@ -29,8 +32,16 @@ export const usersAPI =  {
 
 export const profileAPI = {
     getProfile (userId) {
-        return instance.get(`profile/` + userId)
+        return instance.get(`profile/` + userId);
         
+    },
+
+    getStatus (userId) {
+        return instance.get(`profile/status/` + userId);
+    },
+    
+    updateStatus (status) {
+        return instance.put(`profile/status`, {status: status});
     }
 }
 
